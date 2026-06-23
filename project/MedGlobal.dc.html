@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/med-global-design-system-fc3d99b2-6171-4c49-aa87-35c5603fd9ce/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/med-global-design-system-fc3d99b2-6171-4c49-aa87-35c5603fd9ce/tokens/colors.css">
+<link rel="stylesheet" href="_ds/med-global-design-system-fc3d99b2-6171-4c49-aa87-35c5603fd9ce/tokens/typography.css">
+<link rel="stylesheet" href="_ds/med-global-design-system-fc3d99b2-6171-4c49-aa87-35c5603fd9ce/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/med-global-design-system-fc3d99b2-6171-4c49-aa87-35c5603fd9ce/styles.css">
+<script src="_ds/med-global-design-system-fc3d99b2-6171-4c49-aa87-35c5603fd9ce/_ds_bundle.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  ::selection { background: var(--color-sunrise-coral); color: #fff; }
+  @media (max-width: 820px) {
+    [data-nav-links] { display: none !important; }
+    [data-guarantee-grid] { grid-template-columns: 1fr !important; gap: 36px !important; }
+    [data-footer-grid] { grid-template-columns: 1fr !important; gap: 32px !important; }
+  }
+  @media (max-width: 560px) {
+    [data-form-grid] { grid-template-columns: 1fr !important; }
+  }
+</style>
+</helmet>
+
+<div style="font-family:var(--font-sans); color:var(--color-carbon-black); background:var(--color-paper-white); letter-spacing:-0.005em; -webkit-font-smoothing:antialiased;">
+
+<!-- ================= LANDING ================= -->
+<sc-if value="{{ onLanding }}" hint-placeholder-val="{{ true }}">
+<div>
+
+  <!-- HERO -->
+  <section data-screen-label="Hero" style="position:relative; min-height:760px; overflow:hidden; background:#0c1416;">
+    <img src="assets/hero-nurses.jpg" alt="Nurses reviewing a tablet together" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 30%;">
+    <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,16,18,0.78) 0%, rgba(8,16,18,0.45) 38%, rgba(8,16,18,0.82) 100%);"></div>
+
+    <div style="position:relative; max-width:1200px; margin:0 auto; padding:20px 24px 96px;">
+      <!-- floating pill nav -->
+      <nav style="display:flex; align-items:center; justify-content:space-between; gap:24px; background:var(--color-carbon-black); border-radius:var(--radius-navbar); padding:11px 11px 11px 20px;">
+        <div style="display:flex; align-items:center; gap:11px;">
+          <img src="assets/logo.jpeg" alt="Med Global Deutschland" style="width:34px; height:34px; border-radius:50%; object-fit:cover; background:#fff;">
+          <span style="color:#fff; font-size:17px; font-weight:700; letter-spacing:-0.012em; white-space:nowrap;">med global<span style="color:var(--color-sunrise-coral);"> · de</span></span>
+        </div>
+        <div style="display:flex; align-items:center; gap:26px;" data-nav-links="">
+          <a href="#how" style="color:rgba(255,255,255,0.62); font-size:15px; letter-spacing:-0.009em; text-decoration:none;">{{ t.nav.how }}</a>
+          <a href="#pathways" style="color:rgba(255,255,255,0.62); font-size:15px; letter-spacing:-0.009em; text-decoration:none;">{{ t.nav.pathways }}</a>
+          <a href="#stories" style="color:rgba(255,255,255,0.62); font-size:15px; letter-spacing:-0.009em; text-decoration:none;">{{ t.nav.stories }}</a>
+          <a href="#faq" style="color:rgba(255,255,255,0.62); font-size:15px; letter-spacing:-0.009em; text-decoration:none;">{{ t.nav.faq }}</a>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <button onClick="{{ toggleLang }}" style="background:transparent; border:1px solid rgba(255,255,255,0.28); color:#fff; font-family:var(--font-mono); font-size:12px; letter-spacing:0.04em; padding:9px 12px; border-radius:9999px; cursor:pointer;">{{ otherLang }}</button>
+          <button onClick="{{ goRegister }}" style="display:inline-flex; align-items:center; gap:8px; background:var(--color-sunrise-coral); color:#fff; font-size:15px; font-weight:700; letter-spacing:-0.009em; line-height:1; padding:12px 20px; border:none; border-radius:9999px; cursor:pointer;">{{ t.nav.register }} <span aria-hidden="true">→</span></button>
+        </div>
+      </nav>
+
+      <!-- hero copy -->
+      <div style="max-width:760px; margin-top:120px;">
+        <div style="display:flex; align-items:center; gap:9px; margin-bottom:22px;">
+          <span style="width:7px; height:7px; border-radius:50%; background:var(--color-sunrise-coral);"></span>
+          <span style="font-family:var(--font-mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.72);">{{ t.hero.eyebrow }}</span>
+        </div>
+        <h1 style="margin:0; color:#fff; font-weight:400; font-size:clamp(40px,8vw,66px); line-height:1; letter-spacing:-0.025em; text-wrap:balance;">{{ t.hero.title }}</h1>
+        <p style="margin:26px 0 0; color:rgba(255,255,255,0.82); font-size:19px; line-height:1.5; letter-spacing:-0.009em; max-width:600px;">{{ t.hero.sub }}</p>
+        <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:34px;">
+          <button onClick="{{ goRegister }}" style="display:inline-flex; align-items:center; gap:8px; background:var(--color-sunrise-coral); color:#fff; font-size:17px; font-weight:700; letter-spacing:-0.009em; line-height:1; padding:16px 30px; border:none; border-radius:9999px; cursor:pointer;">{{ t.hero.cta }} <span aria-hidden="true">→</span></button>
+          <a href="#how" style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.08); color:#fff; font-size:17px; font-weight:700; letter-spacing:-0.009em; line-height:1; padding:16px 30px; border:1px solid rgba(255,255,255,0.28); border-radius:9999px; text-decoration:none;">{{ t.hero.secondary }}</a>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:22px; margin-top:30px;">
+          <sc-for list="{{ t.hero.trust }}" as="item" hint-placeholder-count="3">
+            <span style="display:inline-flex; align-items:center; gap:8px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-sunrise-coral)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span style="color:rgba(255,255,255,0.86); font-size:14px; letter-spacing:-0.009em;">{{ item }}</span>
+            </span>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section style="background:var(--color-carbon-black);">
+    <div style="max-width:1200px; margin:0 auto; padding:46px 24px; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:28px;">
+      <sc-for list="{{ t.stats }}" as="s" hint-placeholder-count="4">
+        <div>
+          <div style="color:#fff; font-size:45px; font-weight:700; letter-spacing:-0.022em; line-height:1;">{{ s.n }}</div>
+          <div style="color:rgba(255,255,255,0.6); font-size:15px; letter-spacing:-0.009em; margin-top:8px;">{{ s.l }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" data-screen-label="How it works" style="max-width:1200px; margin:0 auto; padding:80px 24px;">
+    <div style="display:flex; align-items:center; gap:9px; margin-bottom:16px;">
+      <span style="width:7px; height:7px; border-radius:50%; background:var(--color-sunrise-coral);"></span>
+      <span style="font-family:var(--font-mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--color-zinc-gray);">{{ t.how.eyebrow }}</span>
+    </div>
+    <h2 style="margin:0; max-width:720px; font-weight:400; font-size:clamp(30px,5vw,45px); line-height:1.1; letter-spacing:-0.015em;">{{ t.how.title }}</h2>
+    <p style="margin:18px 0 0; max-width:620px; color:var(--color-zinc-gray); font-size:17px; line-height:1.5; letter-spacing:-0.009em;">{{ t.how.sub }}</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:16px; margin-top:46px;">
+      <sc-for list="{{ t.how.steps }}" as="step" hint-placeholder-count="5">
+        <div style="background:var(--color-paper-white); border:1px solid var(--color-mist-gray); border-radius:var(--radius-cards); padding:24px 20px; display:flex; flex-direction:column; gap:12px;">
+          <span style="font-family:var(--font-mono); font-size:13px; font-weight:700; color:var(--color-sunrise-coral); letter-spacing:0.02em;">{{ step.k }}</span>
+          <h3 style="margin:0; font-size:19px; font-weight:700; letter-spacing:-0.012em; line-height:1.25;">{{ step.t }}</h3>
+          <p style="margin:0; color:var(--color-zinc-gray); font-size:14px; line-height:1.5; letter-spacing:-0.005em;">{{ step.d }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- PATHWAYS -->
+  <section id="pathways" data-screen-label="Pathways" style="background:var(--color-fog-gray);">
+    <div style="max-width:1200px; margin:0 auto; padding:80px 24px;">
+      <div style="display:flex; align-items:center; gap:9px; margin-bottom:16px;">
+        <span style="width:7px; height:7px; border-radius:50%; background:var(--color-sunrise-coral);"></span>
+        <span style="font-family:var(--font-mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--color-zinc-gray);">{{ t.pathways.eyebrow }}</span>
+      </div>
+      <h2 style="margin:0; max-width:720px; font-weight:400; font-size:clamp(30px,5vw,45px); line-height:1.1; letter-spacing:-0.015em;">{{ t.pathways.title }}</h2>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; margin-top:42px;">
+        <sc-for list="{{ t.pathways.cards }}" as="card" hint-placeholder-count="2">
+          <div style="background:#fff; border:1px solid var(--color-mist-gray); border-radius:var(--radius-cards); padding:30px;">
+            <span style="display:inline-block; font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-sunrise-coral); background:rgba(252,95,43,0.08); padding:6px 12px; border-radius:9999px;">{{ card.tag }}</span>
+            <h3 style="margin:18px 0 0; font-size:26px; font-weight:400; letter-spacing:-0.013em; line-height:1.15;">{{ card.t }}</h3>
+            <p style="margin:14px 0 22px; color:var(--color-zinc-gray); font-size:15px; line-height:1.5; letter-spacing:-0.005em;">{{ card.d }}</p>
+            <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px;">
+              <sc-for list="{{ card.points }}" as="p" hint-placeholder-count="3">
+                <li style="display:flex; align-items:flex-start; gap:11px;">
+                  <span style="flex:0 0 auto; width:22px; height:22px; margin-top:1px; display:inline-flex; align-items:center; justify-content:center; background:var(--color-sunrise-coral); border-radius:var(--radius-icons); color:#fff;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span>
+                  <span style="font-size:15px; line-height:1.4; letter-spacing:-0.005em;">{{ p }}</span>
+                </li>
+              </sc-for>
+            </ul>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANERKENNUNG GUARANTEE -->
+  <section id="guarantee" data-screen-label="Guarantee" style="max-width:1200px; margin:0 auto; padding:80px 24px;">
+    <div style="display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center;" data-guarantee-grid="">
+      <div>
+        <div style="display:flex; align-items:center; gap:9px; margin-bottom:16px;">
+          <span style="width:7px; height:7px; border-radius:50%; background:var(--color-sunrise-coral);"></span>
+          <span style="font-family:var(--font-mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--color-zinc-gray);">{{ t.guarantee.eyebrow }}</span>
+        </div>
+        <h2 style="margin:0; font-weight:400; font-size:clamp(30px,5vw,42px); line-height:1.1; letter-spacing:-0.015em;">{{ t.guarantee.title }}</h2>
+        <p style="margin:18px 0 28px; color:var(--color-zinc-gray); font-size:17px; line-height:1.5; letter-spacing:-0.009em;">{{ t.guarantee.sub }}</p>
+        <x-import component-from-global-scope="MedGlobalDesignSystem_fc3d99.FeatureList" items="{{ t.guarantee.features }}" hint-size="100%,auto"></x-import>
+        <div style="margin-top:30px;">
+          <x-import component-from-global-scope="MedGlobalDesignSystem_fc3d99.TrustBadgeRow" items="{{ t.guarantee.trust }}" hint-size="100%,auto"></x-import>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:20px; background:var(--color-fog-gray); border-radius:var(--radius-cards); padding:44px;">
+        <x-import component-from-global-scope="MedGlobalDesignSystem_fc3d99.MembershipCard" brand="med global" tier="{{ t.guarantee.cardTier }}" price="€0" period="{{ t.guarantee.cardPeriod }}" width="340" hint-size="340px,214px"></x-import>
+        <p style="margin:0; text-align:center; color:var(--color-zinc-gray); font-size:14px; line-height:1.5; letter-spacing:-0.005em; max-width:300px;">{{ t.guarantee.cardNote }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORIES -->
+  <section id="stories" data-screen-label="Stories" style="background:var(--color-fog-gray);">
+    <div style="max-width:1200px; margin:0 auto; padding:80px 24px;">
+      <div style="display:flex; align-items:center; gap:9px; margin-bottom:16px;">
+        <span style="width:7px; height:7px; border-radius:50%; background:var(--color-sunrise-coral);"></span>
+        <span style="font-family:var(--font-mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--color-zinc-gray);">{{ t.stories.eyebrow }}</span>
+      </div>
+      <h2 style="margin:0; max-width:680px; font-weight:400; font-size:clamp(30px,5vw,45px); line-height:1.1; letter-spacing:-0.015em;">{{ t.stories.title }}</h2>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; margin-top:44px;">
+        <sc-for list="{{ storyItems }}" as="s" hint-placeholder-count="3">
+          <div style="display:flex; flex-direction:column;">
+            <button onClick="{{ s.open }}" style="position:relative; display:block; width:100%; padding:0; border:none; cursor:pointer; border-radius:var(--radius-cards); overflow:hidden; aspect-ratio:4 / 3; background:#0c1416;">
+              <img src="{{ s.img }}" alt="{{ s.name }}" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+              <span style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,16,18,0.04) 38%, rgba(8,16,18,0.8) 100%);"></span>
+              <span style="position:absolute; top:14px; right:14px; display:inline-flex; align-items:center; gap:6px; font-family:var(--font-mono); font-size:11px; letter-spacing:0.04em; color:#fff; background:rgba(8,16,18,0.5); padding:5px 9px; border-radius:9999px;">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"></path></svg>{{ s.dur }}
+              </span>
+              <span style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:60px; height:60px; border-radius:50%; background:var(--color-sunrise-coral); display:flex; align-items:center; justify-content:center; box-shadow:0 10px 26px rgba(0,0,0,0.35);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"></path></svg>
+              </span>
+              <span style="position:absolute; left:18px; right:18px; bottom:16px; display:block; text-align:left;">
+                <span style="display:block; color:#fff; font-size:16px; font-weight:700; letter-spacing:-0.012em;">{{ s.name }}</span>
+                <span style="display:block; color:rgba(255,255,255,0.82); font-size:13px; letter-spacing:-0.005em;">{{ s.role }}</span>
+              </span>
+            </button>
+            <p style="margin:14px 2px 0; font-size:15px; line-height:1.45; letter-spacing:-0.005em; color:var(--color-zinc-gray);">“{{ s.q }}”</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" data-screen-label="FAQ" style="max-width:840px; margin:0 auto; padding:80px 24px;">
+    <div style="display:flex; align-items:center; gap:9px; margin-bottom:16px;">
+      <span style="width:7px; height:7px; border-radius:50%; background:var(--color-sunrise-coral);"></span>
+      <span style="font-family:var(--font-mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--color-zinc-gray);">{{ t.faq.eyebrow }}</span>
+    </div>
+    <h2 style="margin:0 0 34px; font-weight:400; font-size:clamp(30px,5vw,45px); line-height:1.1; letter-spacing:-0.015em;">{{ t.faq.title }}</h2>
+    <div>
+      <sc-for list="{{ faqItems }}" as="item" hint-placeholder-count="5">
+        <div style="border-top:1px solid var(--color-mist-gray); padding:22px 0;">
+          <button onClick="{{ item.toggle }}" style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; background:none; border:none; padding:0; cursor:pointer; text-align:left;">
+            <span style="font-size:19px; font-weight:700; letter-spacing:-0.012em; color:var(--color-carbon-black);">{{ item.q }}</span>
+            <span style="flex:0 0 auto; font-size:24px; line-height:1; color:var(--color-sunrise-coral);">{{ item.sign }}</span>
+          </button>
+          <sc-if value="{{ item.open }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:14px 0 0; max-width:680px; color:var(--color-zinc-gray); font-size:16px; line-height:1.55; letter-spacing:-0.005em;">{{ item.a }}</p>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section style="background:var(--color-carbon-black);">
+    <div style="max-width:1000px; margin:0 auto; padding:84px 24px; text-align:center;">
+      <h2 style="margin:0 auto; max-width:680px; color:#fff; font-weight:400; font-size:clamp(32px,5.5vw,48px); line-height:1.05; letter-spacing:-0.018em; text-wrap:balance;">{{ t.cta.title }}</h2>
+      <p style="margin:20px auto 0; max-width:520px; color:rgba(255,255,255,0.7); font-size:18px; line-height:1.5; letter-spacing:-0.009em;">{{ t.cta.sub }}</p>
+      <div style="display:flex; justify-content:center; margin-top:32px;">
+        <button onClick="{{ goRegister }}" style="display:inline-flex; align-items:center; gap:8px; background:var(--color-sunrise-coral); color:#fff; font-size:17px; font-weight:700; letter-spacing:-0.009em; line-height:1; padding:16px 32px; border:none; border-radius:9999px; cursor:pointer;">{{ t.cta.button }} <span aria-hidden="true">→</span></button>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:22px; margin-top:26px;">
+        <sc-for list="{{ t.cta.trust }}" as="item" hint-placeholder-count="3">
+          <span style="display:inline-flex; align-items:center; gap:8px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-sunrise-coral)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span style="color:rgba(255,255,255,0.82); font-size:14px; letter-spacing:-0.009em;">Earn €2,900 - 3,600/month</span>
+          </span>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#0c1416;">
+    <div style="max-width:1200px; margin:0 auto; padding:56px 24px 40px; display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px;" data-footer-grid="">
+      <div>
+        <div style="display:flex; align-items:center; gap:11px;">
+          <img src="assets/logo.jpeg" alt="Med Global Deutschland" style="width:38px; height:38px; border-radius:50%; object-fit:cover; background:#fff;">
+          <span style="color:#fff; font-size:17px; font-weight:700; letter-spacing:-0.012em;">Med Global Deutschland</span>
+        </div>
+        <p style="margin:18px 0 0; max-width:300px; color:rgba(255,255,255,0.55); font-size:14px; line-height:1.5; letter-spacing:-0.005em;">{{ t.footer.tagline }}</p>
+      </div>
+      <div>
+        <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:16px;">{{ t.footer.colA }}</div>
+        <div style="display:flex; flex-direction:column; gap:11px;">
+          <sc-for list="{{ t.footer.linksA }}" as="l" hint-placeholder-count="4">
+            <a href="#" style="color:rgba(255,255,255,0.72); font-size:14px; letter-spacing:-0.005em; text-decoration:none;">{{ l }}</a>
+          </sc-for>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:16px;">{{ t.footer.colB }}</div>
+        <div style="display:flex; flex-direction:column; gap:11px;">
+          <sc-for list="{{ t.footer.linksB }}" as="l" hint-placeholder-count="4">
+            <a href="#" style="color:rgba(255,255,255,0.72); font-size:14px; letter-spacing:-0.005em; text-decoration:none;">{{ l }}</a>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.1);">
+      <div style="max-width:1200px; margin:0 auto; padding:20px 24px; display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;">
+        <span style="color:rgba(255,255,255,0.4); font-size:13px; letter-spacing:-0.005em;">{{ t.footer.rights }}</span>
+        <button onClick="{{ toggleLang }}" style="background:transparent; border:1px solid rgba(255,255,255,0.22); color:rgba(255,255,255,0.7); font-family:var(--font-mono); font-size:12px; letter-spacing:0.04em; padding:8px 14px; border-radius:9999px; cursor:pointer;">{{ langLabel }}</button>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</sc-if>
+
+<!-- ================= REGISTER ================= -->
+<sc-if value="{{ onRegister }}" hint-placeholder-val="{{ false }}">
+<div style="min-height:100vh; background:var(--color-fog-gray);">
+
+  <!-- top bar -->
+  <div style="background:#fff; border-bottom:1px solid var(--color-mist-gray);">
+    <div style="max-width:760px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px;">
+      <button onClick="{{ goLanding }}" style="display:inline-flex; align-items:center; gap:8px; background:none; border:none; padding:0; cursor:pointer; color:var(--color-zinc-gray); font-size:14px; letter-spacing:-0.005em; font-family:var(--font-sans);"><span aria-hidden="true">←</span> {{ t.register.back }}</button>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img src="assets/logo.jpeg" alt="" style="width:30px; height:30px; border-radius:50%; object-fit:cover;">
+        <span style="font-size:15px; font-weight:700; letter-spacing:-0.012em; white-space:nowrap;">med global<span style="color:var(--color-sunrise-coral);"> · de</span></span>
+      </div>
+      <button onClick="{{ toggleLang }}" style="background:transparent; border:1px solid var(--color-mist-gray); color:var(--color-zinc-gray); font-family:var(--font-mono); font-size:12px; letter-spacing:0.04em; padding:8px 12px; border-radius:9999px; cursor:pointer;">{{ otherLang }}</button>
+    </div>
+  </div>
+
+  <div style="max-width:760px; margin:0 auto; padding:40px 24px 80px;">
+
+    <!-- progress -->
+    <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+    <div style="margin-bottom:28px;">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px;">
+        <span style="font-family:var(--font-mono); font-size:12px; letter-spacing:0.04em; text-transform:uppercase; color:var(--color-zinc-gray);">{{ t.register.stepWord }} {{ stepNum }} {{ t.register.of }} 3</span>
+        <span style="font-family:var(--font-mono); font-size:12px; color:var(--color-ash-gray);">{{ stepTitle }}</span>
+      </div>
+      <div style="height:6px; background:var(--color-mist-gray); border-radius:9999px; overflow:hidden;">
+        <div style="height:100%; width:{{ progressPct }}%; background:var(--color-sunrise-coral); border-radius:9999px; transition:width .3s ease;"></div>
+      </div>
+    </div>
+    </sc-if>
+
+    <div style="background:#fff; border:1px solid var(--color-mist-gray); border-radius:var(--radius-cards); padding:36px;">
+
+      <!-- STEP 1 -->
+      <sc-if value="{{ isStep1 }}" hint-placeholder-val="{{ true }}">
+      <div>
+        <h2 style="margin:0; font-weight:400; font-size:30px; letter-spacing:-0.013em; line-height:1.15;">{{ t.register.s1.title }}</h2>
+        <p style="margin:12px 0 28px; color:var(--color-zinc-gray); font-size:16px; line-height:1.5; letter-spacing:-0.005em;">{{ t.register.s1.sub }}</p>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px;" data-form-grid="">
+          <div style="grid-column:1 / -1;">
+            <label style="display:block; font-size:13px; font-weight:700; letter-spacing:-0.009em; margin-bottom:8px;">{{ t.register.s1.fullName }}</label>
+            <input name="fullName" value="{{ form.fullName }}" onChange="{{ setField }}" placeholder="{{ t.register.s1.fullNamePh }}" style="font-family:var(--font-sans); font-size:15px; letter-spacing:-0.005em; color:var(--color-carbon-black); background:#fff; border:1px solid var(--color-mist-gray); border-radius:5px; padding:12px 14px; outline:none; width:100%;">
+            <sc-if value="{{ err.fullName }}" hint-placeholder-val="{{ false }}"><span style="display:block; margin-top:6px; font-size:12px; color:var(--color-sunrise-coral);">{{ err.fullName }}</span></sc-if>
+          </div>
+          <div>
+            <label style="display:block; font-size:13px; font-weight:700; letter-spacing:-0.009em; margin-bottom:8px;">{{ t.register.s1.email }}</label>
+            <input name="email" type="email" value="{{ form.email }}" onChange="{{ setField }}" placeholder="you@email.com" style="font-family:var(--font-sans); font-size:15px; letter-spacing:-0.005em; color:var(--color-carbon-black); background:#fff; border:1px solid var(--color-mist-gray); border-radius:5px; padding:12px 14px; outline:none; width:100%;">
+            <sc-if value="{{ err.email }}" hint-placeholder-val="{{ false }}"><span style="display:block; margin-top:6px; font-size:12px; color:var(--color-sunrise-coral);">{{ err.email }}</span></sc-if>
+          </div>
+          <div>
+            <label style="display:block; font-size:13px; font-weight:700; letter-spacing:-0.009em; margin-bottom:8px;">{{ t.register.s1.phone }}</label>
+            <input name="phone" type="tel" value="{{ form.phone }}" onChange="{{ setField }}" placeholder="+234 …" style="font-family:var(--font-sans); font-size:15px; letter-spacing:-0.005em; color:var(--color-carbon-black); background:#fff; border:1px solid var(--color-mist-gray); border-radius:5px; padding:12px 14px; outline:none; width:100%;">
+            <sc-if value="{{ err.phone }}" hint-placeholder-val="{{ false }}"><span style="display:block; margin-top:6px; font-size:12px; color:var(--color-sunrise-coral);">{{ err.phone }}</span></sc-if>
+          </div>
+          <div>
+            <label style="display:block; font-size:13px; font-weight:700; letter-spacing:-0.009em; margin-bottom:8px;">{{ t.register.s1.country }}</label>
+            <select name="country" value="{{ form.country }}" onChange="{{ setField }}" style="font-family:var(--font-sans); font-size:15px; letter-spacing:-0.005em; color:var(--color-carbon-black); background:#fff; border:1px solid var(--color-mist-gray); border-radius:5px; padding:12px 14px; outline:none; width:100%; appearance:none;">
+              <option value="" disabled="">{{ t.register.selects.placeholder }}</option>
+              <sc-for list="{{ t.register.selects.country }}" as="o" hint-placeholder-count="5"><option value="{{ o }}">{{ o }}</option></sc-for>
+            </select>
+            <sc-if value="{{ err.country }}" hint-placeholder-val="{{ false }}"><span style="display:block; margin-top:6px; font-size:12px; color:var(--color-sunrise-coral);">{{ err.country }}</span></sc-if>
+          </div>
+          <div>
+            <label style="display:block; font-size:13px; font-weight:700; letter-spacing:-0.009em; margin-bottom:8px;">{{ t.register.s1.city }}</label>
+            <input name="city" value="{{ form.city }}" onChange="{{ setField }}" style="font-family:var(--font-sans); font-size:15px; letter-spacing:-0.005em; color:var(--color-carbon-black); background:#fff; border:1px solid var(--color-mist-gray); border-radius:5px; padding:12px 14px; outline:none; width:100%;">
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- STEP 2 -->
+      <sc-if value="{{ isStep2 }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <h2 style="margin:0; font-weight:400; font-size:30px; letter-spacing:-0.013em; line-height:1.15;">{{ t.register.s2.title }}</h2>
+        <p style="margin:12px 0 24px; color:var(--color-zinc-gray); font-size:16px; line-height:1.5; letter-spacing:-0.005em;">{{ t.register.s2.q }}</p>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;" data-form-grid="">
+          <button onClick="{{ setNurseYes }}" style="{{ yesCardStyle }}">
+            <span style="font-size:17px; font-weight:700; letter-spacing:-0.012em;">{{ t.register.s2.yes }}</span>
+            <span style="font-size:13px; color:var(--color-zinc-gray); letter-spacing:-0.005em; line-height:1.4;">{{ t.register.s2.yesD }}</span>
+          </button>
+          <button onClick="{{ setNurseNo }}" style="{{ noCardStyle }}">
+            <span style="font-size:17px; font-weight:700; letter-spacing:-0.012em;">{{ t.register.s2.no }}</span>
+            <span style="font-size:13px; color:var(--color-zinc-gray); letter-spacing:-0.005em; line-height:1.4;">{{ t.register.s2.noD }}</span>
+          </button>
+        </div>
+        <sc-if value="{{ err._nurse }}" hint-placeholder-val="{{ false }}"><span style="display:block; margin-top:10px; font-size:12px; color:var(--color-sunrise-coral);">{{ err._nurse }}</span></sc-if>
+
+        <!-- YES branch -->
+        <sc-if value="{{ nurseYes }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:30px; padding-top:28px; border-top:1px solid var(--color-mist-gray); display:grid; grid-template-columns:1fr 1fr; gap:18px;" data-form-grid="">
+          <div>
+            <label style="display:block; font-size:13px; font-weight:700; letter-spacing:-0.009em; margin-bottom:8px;">{{ t.register.s2.years }}</label>
+            <select name="years" value="{{ form.years }}" onChange="{{ setField }}" style="font-family:var(--font-sans); font-size:15px; color:var(--color-carbon-black); background:#fff; border:1px solid var(--color-mist-gray); border-radius:5px; padding:12px 14px; outline:none; width:100%; appearance:none;">
+              <option value="" disabled="">{{ t.register.selects.placeholder }}</option>
+              <sc-for list="{{ t.register.selects.years }}" as="o" hint-placeholder-count="5"><option value="{{ o }}">{{ o }}</option></sc-for>
+            </select>
+            <sc-if value="{{ err.years }}" hint-placeholder-val="{{ false }}"><span style="display:block; margin-top:6px; font-size:12px; color:var(--color-sunrise-coral);">{{ err.years }}</span></sc-if>
+          </div>
+          <div>
+            <label style="display:block; font-size:13px; font-weight:700; letter-spacing:-0.009em; margin-bottom:8px;">{{ t.register.s2.spec }}</label>
+            <select name="spec" value="{{ form.spec }}" onChange="{{ setField }}" style="font-family:var(--font-sans); font-size:15px; color:var(--color-carbon-black); background:#fff; border:1px solid var(--color-mist-gray); border-radius:5px; padding:12px 14px; outline:none; width:100%; appearance:none;">
+              <option value="" disabled="">{{ t.register.selects.placeholder }}</option>
+              <sc-for list="{{ t.register.selects.spec }}" as="o" hint-placeholder-count="6"><option value="{{ o }}">{{ o }}</option></sc-for>
+            </select>
+            <sc-if value="{{ err.spec }}" hint-placeholder-val="{{ false }}"><span style="display:block; margin-top:6px; font-size:12px; color:var(--color-sunrise-coral);">{{ err.spec }}</span></sc-if>
+          </div>
+          <div style="grid-column:1 / -1;">
+            <label style="display:block; font-size:13px; font-weight:700; letter-spacing:-0.009em; margin-bottom:8px;">{{ t.register.s2.license }}</label>
+            <input name="license" value="{{ form.license }}" onChange="{{ setField }}" placeholder="{{ t.register.s2.licensePh }}" style="font-family:var(--font-sans); font-size:15px; color:var(--color-carbon-black); background:#fff; border:1px solid var(--color-mist-gray); border-radius:5px; padding:12px 14px; outline:none; width:100%;">
+            <sc-if value="{{ err.license }}" hint-placeholder-val="{{ false }}"><span style="display:block; margin-top:6px; font-size:12px; color:var(--color-sunrise-coral);">{{ err.license }}</span></sc-if>
+          </div>
+          <div>
+            <label style="display:block; font-size:13px; font-weight:700; letter-spacing:-0.009em; margin-bottom:8px;">{{ t.register.s2.cv }}</label>
+            <label style="{{ cvDropStyle }}">
+              <input type="file" name="cv" accept="application/pdf" onChange="{{ setFile }}" style="display:none;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+              <span style="font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ cvLabel }}</span>
+            </label>
+            <sc-if value="{{ err.cv }}" hint-placeholder-val="{{ false }}"><span style="display:block; margin-top:6px; font-size:12px; color:var(--color-sunrise-coral);">{{ err.cv }}</span></sc-if>
+          </div>
+          <div>
+            <label style="display:block; font-size:13px; font-weight:700; letter-spacing:-0.009em; margin-bottom:8px;">{{ t.register.s2.licenseDoc }}</label>
+            <label style="{{ licDropStyle }}">
+              <input type="file" name="licenseDoc" accept="application/pdf,image/*" onChange="{{ setFile }}" style="display:none;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+              <span style="font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ licLabel }}</span>
+            </label>
+            <sc-if value="{{ err.licenseDoc }}" hint-placeholder-val="{{ false }}"><span style="display:block; margin-top:6px; font-size:12px; color:var(--color-sunrise-coral);">{{ err.licenseDoc }}</span></sc-if>
+          </div>
+        </div>
+        </sc-if>
+
+        <!-- NO branch -->
+        <sc-if value="{{ nurseNo }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:30px;">
+          <div style="background:rgba(252,95,43,0.06); border:1px solid rgba(252,95,43,0.2); border-radius:var(--radius-cards); padding:24px;">
+            <span style="display:inline-block; font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-sunrise-coral);">{{ t.register.s2.noTag }}</span>
+            <h3 style="margin:12px 0 8px; font-size:21px; font-weight:700; letter-spacing:-0.012em;">{{ t.register.s2.noTitle }}</h3>
+            <p style="margin:0; color:var(--color-zinc-gray); font-size:15px; line-height:1.5; letter-spacing:-0.005em;">{{ t.register.s2.noD2 }}</p>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:22px;" data-form-grid="">
+            <div>
+              <label style="display:block; font-size:13px; font-weight:700; letter-spacing:-0.009em; margin-bottom:8px;">{{ t.register.s2.level }}</label>
+              <select name="level" value="{{ form.level }}" onChange="{{ setField }}" style="font-family:var(--font-sans); font-size:15px; color:var(--color-carbon-black); background:#fff; border:1px solid var(--color-mist-gray); border-radius:5px; padding:12px 14px; outline:none; width:100%; appearance:none;">
+                <option value="" disabled="">{{ t.register.selects.placeholder }}</option>
+                <sc-for list="{{ t.register.selects.level }}" as="o" hint-placeholder-count="3"><option value="{{ o }}">{{ o }}</option></sc-for>
+              </select>
+              <sc-if value="{{ err.level }}" hint-placeholder-val="{{ false }}"><span style="display:block; margin-top:6px; font-size:12px; color:var(--color-sunrise-coral);">{{ err.level }}</span></sc-if>
+            </div>
+            <div>
+              <label style="display:block; font-size:13px; font-weight:700; letter-spacing:-0.009em; margin-bottom:8px;">{{ t.register.s2.edu }}</label>
+              <select name="edu" value="{{ form.edu }}" onChange="{{ setField }}" style="font-family:var(--font-sans); font-size:15px; color:var(--color-carbon-black); background:#fff; border:1px solid var(--color-mist-gray); border-radius:5px; padding:12px 14px; outline:none; width:100%; appearance:none;">
+                <option value="" disabled="">{{ t.register.selects.placeholder }}</option>
+                <sc-for list="{{ t.register.selects.edu }}" as="o" hint-placeholder-count="4"><option value="{{ o }}">{{ o }}</option></sc-for>
+              </select>
+            </div>
+          </div>
+        </div>
+        </sc-if>
+      </div>
+      </sc-if>
+
+      <!-- STEP 3 -->
+      <sc-if value="{{ isStep3 }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <h2 style="margin:0; font-weight:400; font-size:30px; letter-spacing:-0.013em; line-height:1.15;">{{ t.register.s3.title }}</h2>
+        <p style="margin:12px 0 24px; color:var(--color-zinc-gray); font-size:16px; line-height:1.5; letter-spacing:-0.005em;">{{ t.register.s3.sub }}</p>
+
+        <div style="border:1px solid var(--color-mist-gray); border-radius:var(--radius-cards); overflow:hidden;">
+          <sc-for list="{{ summary }}" as="row" hint-placeholder-count="6">
+            <div style="display:flex; justify-content:space-between; gap:16px; padding:14px 18px; border-bottom:1px solid var(--color-fog-gray);">
+              <span style="font-size:14px; color:var(--color-zinc-gray); letter-spacing:-0.005em;">{{ row.label }}</span>
+              <span style="font-size:14px; font-weight:700; letter-spacing:-0.009em; text-align:right;">{{ row.value }}</span>
+            </div>
+          </sc-for>
+        </div>
+
+        <label style="display:flex; align-items:flex-start; gap:12px; margin-top:24px; cursor:pointer;">
+          <input type="checkbox" checked="{{ form.consent }}" onChange="{{ toggleConsent }}" style="width:18px; height:18px; margin-top:2px; accent-color:var(--color-sunrise-coral); flex:0 0 auto;">
+          <span style="font-size:14px; color:var(--color-zinc-gray); line-height:1.5; letter-spacing:-0.005em;">{{ t.register.s3.consent }}</span>
+        </label>
+        <sc-if value="{{ err.consent }}" hint-placeholder-val="{{ false }}"><span style="display:block; margin-top:8px; font-size:12px; color:var(--color-sunrise-coral);">{{ err.consent }}</span></sc-if>
+      </div>
+      </sc-if>
+
+      <!-- nav buttons -->
+      <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex; justify-content:space-between; gap:12px; margin-top:32px;">
+        <button onClick="{{ back }}" style="background:transparent; color:var(--color-carbon-black); border:1px solid var(--color-mist-gray); font-size:15px; font-weight:700; letter-spacing:-0.009em; padding:13px 24px; border-radius:9999px; cursor:pointer; font-family:var(--font-sans);">{{ backLabel }}</button>
+        <sc-if value="{{ isStep3 }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ submit }}" style="display:inline-flex; align-items:center; gap:8px; background:var(--color-sunrise-coral); color:#fff; border:none; font-size:15px; font-weight:700; letter-spacing:-0.009em; padding:13px 28px; border-radius:9999px; cursor:pointer; font-family:var(--font-sans);">{{ t.register.s3.submit }} <span aria-hidden="true">→</span></button>
+        </sc-if>
+        <sc-if value="{{ notStep3 }}" hint-placeholder-val="{{ true }}">
+          <button onClick="{{ next }}" style="display:inline-flex; align-items:center; gap:8px; background:var(--color-sunrise-coral); color:#fff; border:none; font-size:15px; font-weight:700; letter-spacing:-0.009em; padding:13px 28px; border-radius:9999px; cursor:pointer; font-family:var(--font-sans);">{{ t.register.continue }} <span aria-hidden="true">→</span></button>
+        </sc-if>
+      </div>
+      </sc-if>
+
+      <!-- DONE -->
+      <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+      <div data-screen-label="Confirmation" style="text-align:center;">
+        <div style="width:64px; height:64px; margin:0 auto 22px; border-radius:50%; background:var(--color-sunrise-coral); display:flex; align-items:center; justify-content:center;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        <h2 style="margin:0; font-weight:400; font-size:34px; letter-spacing:-0.015em;">{{ t.register.done.title }}</h2>
+        <p style="margin:12px auto 0; max-width:420px; color:var(--color-zinc-gray); font-size:16px; line-height:1.5; letter-spacing:-0.005em;">{{ t.register.done.sub }}</p>
+
+        <div style="display:inline-flex; align-items:center; gap:10px; margin-top:22px; background:var(--color-fog-gray); border-radius:9999px; padding:10px 18px;">
+          <span style="font-family:var(--font-mono); font-size:12px; letter-spacing:0.04em; text-transform:uppercase; color:var(--color-zinc-gray);">{{ t.register.done.ref }}</span>
+          <span style="font-family:var(--font-mono); font-size:14px; font-weight:700; letter-spacing:0.02em; color:var(--color-carbon-black);">{{ refId }}</span>
+        </div>
+
+        <!-- simulated email -->
+        <div style="margin-top:30px; text-align:left; border:1px solid var(--color-mist-gray); border-radius:var(--radius-cards); overflow:hidden;">
+          <div style="display:flex; align-items:center; gap:10px; padding:13px 18px; background:var(--color-fog-gray); border-bottom:1px solid var(--color-mist-gray);">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--color-sunrise-coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 5L2 7"></path></svg>
+            <span style="font-size:13px; color:var(--color-zinc-gray); letter-spacing:-0.005em;">{{ t.register.done.emailNote }} <strong style="color:var(--color-carbon-black);">{{ emailDisplay }}</strong></span>
+          </div>
+          <div style="padding:18px;">
+            <div style="font-size:15px; font-weight:700; letter-spacing:-0.009em;">{{ t.register.done.emailSubject }}</div>
+            <p style="margin:8px 0 0; font-size:14px; color:var(--color-zinc-gray); line-height:1.5; letter-spacing:-0.005em;">{{ t.register.done.emailBody }}</p>
+          </div>
+        </div>
+
+        <div style="margin-top:28px; text-align:left;">
+          <div style="font-family:var(--font-mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--color-zinc-gray); margin-bottom:14px;">{{ t.register.done.next }}</div>
+          <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px;">
+            <sc-for list="{{ t.register.done.nextItems }}" as="n" hint-placeholder-count="3">
+              <li style="display:flex; align-items:flex-start; gap:11px;">
+                <span style="flex:0 0 auto; width:22px; height:22px; margin-top:1px; display:inline-flex; align-items:center; justify-content:center; background:var(--color-sunrise-coral); border-radius:var(--radius-icons); color:#fff;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                <span style="font-size:15px; line-height:1.45; letter-spacing:-0.005em;">{{ n }}</span>
+              </li>
+            </sc-for>
+          </ul>
+        </div>
+
+        <div style="display:flex; justify-content:center; gap:12px; margin-top:32px; flex-wrap:wrap;">
+          <button onClick="{{ goLanding }}" style="background:var(--color-carbon-black); color:#fff; border:none; font-size:15px; font-weight:700; letter-spacing:-0.009em; padding:13px 26px; border-radius:9999px; cursor:pointer; font-family:var(--font-sans);">{{ t.register.done.home }}</button>
+          <button onClick="{{ restart }}" style="background:transparent; color:var(--color-carbon-black); border:1px solid var(--color-mist-gray); font-size:15px; font-weight:700; letter-spacing:-0.009em; padding:13px 26px; border-radius:9999px; cursor:pointer; font-family:var(--font-sans);">{{ t.register.done.another }}</button>
+        </div>
+      </div>
+      </sc-if>
+
+    </div>
+
+    <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+    <p style="text-align:center; margin:22px 0 0; font-size:13px; color:var(--color-ash-gray); letter-spacing:-0.005em;">{{ t.register.secure }}</p>
+    </sc-if>
+  </div>
+
+</div>
+</sc-if>
+
+<!-- VIDEO LIGHTBOX -->
+<sc-if value="{{ storyOpen }}" hint-placeholder-val="{{ false }}">
+<div onClick="{{ closeStory }}" style="position:fixed; inset:0; z-index:60; background:rgba(8,16,18,0.86); display:flex; align-items:center; justify-content:center; padding:24px;">
+  <div onClick="{{ stop }}" style="position:relative; width:100%; max-width:900px; aspect-ratio:16 / 9; background:#0c1416; border-radius:var(--radius-cards); overflow:hidden;">
+    <img src="{{ activeStory.img }}" alt="{{ activeStory.name }}" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.6;">
+    <span style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,16,18,0.3) 0%, rgba(8,16,18,0.2) 45%, rgba(8,16,18,0.85) 100%);"></span>
+    <button onClick="{{ closeStory }}" aria-label="Close" style="position:absolute; top:16px; right:16px; width:40px; height:40px; border-radius:50%; border:none; cursor:pointer; background:rgba(255,255,255,0.14); color:#fff; display:flex; align-items:center; justify-content:center;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <span style="position:absolute; top:18px; left:18px; display:inline-flex; align-items:center; gap:7px; font-family:var(--font-mono); font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:#fff; background:rgba(252,95,43,0.9); padding:6px 11px; border-radius:9999px;">
+      <span style="width:7px; height:7px; border-radius:50%; background:#fff;"></span>{{ t.stories.videoTag }}
+    </span>
+    <span style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:78px; height:78px; border-radius:50%; background:var(--color-sunrise-coral); display:flex; align-items:center; justify-content:center; box-shadow:0 14px 40px rgba(0,0,0,0.45);">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"></path></svg>
+    </span>
+    <div style="position:absolute; left:28px; right:28px; bottom:26px;">
+      <p style="margin:0 0 14px; max-width:620px; color:#fff; font-size:21px; line-height:1.4; letter-spacing:-0.012em; text-wrap:pretty;">“{{ activeStory.q }}”</p>
+      <div style="font-size:16px; font-weight:700; letter-spacing:-0.012em; color:#fff;">{{ activeStory.name }}</div>
+      <div style="font-size:14px; letter-spacing:-0.005em; color:rgba(255,255,255,0.78);">{{ activeStory.role }}</div>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    screen: 'landing',
+    lang: 'en',
+    step: 1,
+    isNurse: null,
+    submitted: false,
+    refId: '',
+    openFaq: 0,
+    activeStoryIdx: -1,
+    err: {},
+    form: { fullName:'', email:'', phone:'', country:'', city:'', years:'', spec:'', license:'', level:'', edu:'', consent:false },
+    files: { cv:'', licenseDoc:'' }
+  };
+
+  T = {
+    en: {
+      nav: { how:'How it works', pathways:'Pathways', stories:'Success stories', faq:'FAQ', register:'Start application' },
+      hero: {
+        eyebrow:'For West African nurses · Relocate to Germany',
+        title:'Your nursing career, decoded for Germany.',
+        sub:'Med Global Deutschland guides Nigerian and West African nurses from application, through Anerkennung, to your first shift in a German hospital — fully supported, at no cost to you.',
+        cta:'Start your application', secondary:'See how it works',
+        trust:['Anerkennung guaranteed','Earn €2,900–3,600/month','B1/B2 language support']
+      },
+      stats:[ {n:'500+',l:'Nurses placed in Germany'}, {n:'70+',l:'Partner hospitals & clinics'}, {n:'98%',l:'Anerkennung success rate'}, {n:'12',l:'German states covered'} ],
+      how: {
+        eyebrow:'The process', title:'Five steps. One team. Zero guesswork.',
+        sub:'We handle the paperwork, the authorities and the logistics — you focus on your patients.',
+        steps:[
+          {k:'01',t:'Apply & get verified',d:'Submit your profile and documents. We verify your credentials within five working days — at no cost to you.'},
+          {k:'02',t:'Learn German to B1/B2',d:'Funded medical-German training with certified partners, online and in person, around your schedule.'},
+          {k:'03',t:'Anerkennung — license recognition',d:'Our specialists manage your full nursing-license recognition with German authorities, start to finish.'},
+          {k:'04',t:'Visa & relocation',d:'Work visa, flights, first accommodation and city registration — coordinated for you and your family.'},
+          {k:'05',t:'Start work & settle in',d:'Begin your role at a partner hospital with an assigned mentor and ongoing integration support.'}
+        ]
+      },
+      pathways: {
+        eyebrow:'Two pathways', title:'Registered nurse or aspiring — there is a route for you.',
+        cards:[
+          {tag:'Fast-track',t:'Registered / qualified nurses',d:'Already licensed with experience? Move straight into credential verification and Anerkennung for a salaried nursing role.',points:['License recognition (Anerkennung)','Salaried role from arrival','Family reunification support']},
+          {tag:'Ausbildung',t:'Not yet registered? Train in Germany.',d:'Join the Ausbildung apprenticeship — earn while you train toward a recognised German nursing qualification.',points:['Paid 3-year apprenticeship','German from A1, fully funded','Guaranteed path to licensure']}
+        ]
+      },
+      guarantee: {
+        eyebrow:'The Anerkennung guarantee', title:'We do not stop until your license is recognised.',
+        sub:'Recognition of your foreign qualification — Anerkennung — is the hardest part of moving to Germany. It is also the part we guarantee.',
+        features:['Full Anerkennung file managed by our specialists','Funded B1/B2 medical German training','Visa, flights & first accommodation arranged','A mentor at your hospital from day one','No fees — ever — for qualified nurses'],
+        trust:['No fees for nurses','Anerkennung guaranteed','Family support'],
+        cardTier:'Relocation package', cardPeriod:'to you',
+        cardNote:'For qualified nurses, your entire relocation — verification, language, Anerkennung, visa and travel — is funded by our partner hospitals.'
+      },
+      stories: {
+        eyebrow:'Success stories', title:'From West Africa to German wards.', videoTag:'Video testimonial',
+        items:[
+          {q:'Med Global handled my entire Anerkennung. Eight months after applying from Lagos, I was working in the ICU in Düsseldorf.',name:'Chidinma O.',role:'ICU Nurse · Düsseldorf',img:'assets/nurse-smile.jpg'},
+          {q:'I came through the Ausbildung route with no German. They funded my language course and I qualified here. My family joined me last year.',name:'Emeka A.',role:'Geriatric Nurse · Munich',img:'assets/nurse-portrait.jpg'},
+          {q:'The visa and housing were sorted before I landed. I walked into a job and a flat that were ready for me.',name:'Blessing N.',role:'Pediatric Nurse · Hamburg',img:'assets/nurses-clipboard.jpg'}
+        ]
+      },
+      faq: {
+        eyebrow:'Questions', title:'Everything you are wondering.',
+        items:[
+          {q:'How much does it cost me?',a:'Nothing. Med Global Deutschland is paid by partner hospitals. Qualified nurses pay no fees for verification, Anerkennung, language training or relocation.'},
+          {q:'I do not speak German. Can I still apply?',a:'Yes. Most candidates start with little or no German. We fund and arrange your training up to the B1/B2 level employers require.'},
+          {q:'Can my family come with me?',a:'Yes. Germany allows family reunification for skilled workers. We support spouse and children visas as part of your relocation.'},
+          {q:'How long does the whole process take?',a:'For registered nurses, typically 8–14 months from application to your first shift, depending on language progress and Anerkennung processing.'},
+          {q:'What if I am not a registered nurse yet?',a:'You can join the Ausbildung apprenticeship — a paid, three-year training in Germany leading to a recognised nursing qualification.'}
+        ]
+      },
+      cta: { title:'Ready to begin your move to Germany?', sub:'Create your profile in minutes. No cost, no commitment.', button:'Start your application', trust:['Anerkennung guaranteed','€0 to qualified nurses','Family support included'] },
+      footer: { tagline:'Bridging West African nursing talent with German healthcare.', colA:'Platform', colB:'Company', linksA:['How it works','Pathways','Success stories','FAQ'], linksB:['About us','Partner hospitals','Contact','Privacy'], rights:'© 2026 Med Global Deutschland. All rights reserved.' },
+      register: {
+        back:'Back to home', stepWord:'Step', of:'of', continue:'Continue', secure:'Your data is encrypted and processed securely under GDPR.',
+        s1:{ title:'Let us start with you', sub:'Tell us who you are. This takes about two minutes.', fullName:'Full name', fullNamePh:'e.g. Amina Okafor', email:'Email address', phone:'Phone (WhatsApp)', country:'Country of residence', city:'City' },
+        s2:{ title:'Your nursing background', q:'Are you a qualified / registered nurse?', yes:'Yes, I am registered', yesD:'I hold a nursing license and have practised.', no:'Not yet', noD:'I want to train via the Ausbildung pathway.',
+          years:'Years of experience', spec:'Specialization', license:'Nursing license number', licensePh:'e.g. NMCN/RN/123456', cv:'Upload your CV (PDF)', licenseDoc:'Upload your nursing license (PDF or image)',
+          noTag:'Ausbildung pathway', noTitle:'Great — the Ausbildung track is for you.', noD2:'You will train in Germany on a paid apprenticeship while earning a recognised nursing qualification. First, your German level:', level:'Current German language level', edu:'Highest education completed' },
+        s3:{ title:'Review & submit', sub:'Check your details before we create your profile.', consent:'I agree to Med Global Deutschland processing my data and documents for the purpose of recruitment and relocation.', submit:'Submit application' },
+        done:{ title:'Application received.', sub:'Welcome to your journey to Germany.', ref:'Your reference', emailNote:'A confirmation email is on its way to', emailSubject:'Welcome to Med Global Deutschland — we have received your application', emailBody:'Thank you for applying. Our placement team will review your profile and reach out within five working days with your personalised next steps.', next:'What happens next', nextItems:['Our team reviews your details within five working days.','We reach out by email and WhatsApp with your next steps.','You get access to your personal relocation dashboard.'], home:'Back to home', another:'Start another application' },
+        selects:{ placeholder:'Please select', country:['Nigeria','Ghana','Kenya','Cameroon','Other'], years:['Less than 1 year','1–2 years','3–5 years','6–10 years','10+ years'], spec:['General / Medical-surgical','Intensive care (ICU)','Emergency','Pediatrics','Geriatrics','Operating theatre','Midwifery','Oncology','Other'], level:['None','A1–A2','B1–B2'], edu:['Secondary school','Nursing diploma / certificate','Bachelor degree','Postgraduate'] }
+      }
+    },
+    de: {
+      nav: { how:'So funktioniert es', pathways:'Wege', stories:'Erfolgsgeschichten', faq:'FAQ', register:'Bewerbung starten' },
+      hero: {
+        eyebrow:'Für Pflegekräfte aus Westafrika · Umzug nach Deutschland',
+        title:'Deine Pflegekarriere – für Deutschland entschlüsselt.',
+        sub:'Med Global Deutschland begleitet Pflegekräfte aus Nigeria und Westafrika von der Bewerbung über die Anerkennung bis zur ersten Schicht im deutschen Krankenhaus — voll betreut und für dich kostenlos.',
+        cta:'Bewerbung starten', secondary:'So funktioniert es',
+        trust:['Anerkennung garantiert','2.900–3.600 €/Monat verdienen','Sprachförderung B1/B2']
+      },
+      stats:[ {n:'500+',l:'Pflegekräfte vermittelt'}, {n:'70+',l:'Partnerkliniken & Krankenhäuser'}, {n:'98%',l:'Anerkennungs-Erfolgsquote'}, {n:'12',l:'Bundesländer abgedeckt'} ],
+      how: {
+        eyebrow:'Der Ablauf', title:'Fünf Schritte. Ein Team. Kein Rätselraten.',
+        sub:'Wir kümmern uns um Papierkram, Behörden und Logistik — du konzentrierst dich auf deine Patienten.',
+        steps:[
+          {k:'01',t:'Bewerben & verifizieren',d:'Reiche dein Profil und deine Dokumente ein. Wir prüfen deine Qualifikationen innerhalb von fünf Werktagen — kostenlos für dich.'},
+          {k:'02',t:'Deutsch bis B1/B2 lernen',d:'Geförderte Fachsprachkurse mit zertifizierten Partnern, online und vor Ort, passend zu deinem Zeitplan.'},
+          {k:'03',t:'Anerkennung deiner Lizenz',d:'Unsere Spezialisten übernehmen die komplette Anerkennung deiner Pflegelizenz bei den deutschen Behörden.'},
+          {k:'04',t:'Visum & Umzug',d:'Arbeitsvisum, Flüge, erste Unterkunft und Anmeldung — koordiniert für dich und deine Familie.'},
+          {k:'05',t:'Anfangen & ankommen',d:'Starte deine Stelle in einem Partnerkrankenhaus mit persönlichem Mentor und laufender Integrationsbegleitung.'}
+        ]
+      },
+      pathways: {
+        eyebrow:'Zwei Wege', title:'Examiniert oder angehend — es gibt einen Weg für dich.',
+        cards:[
+          {tag:'Schnellverfahren',t:'Examinierte Pflegekräfte',d:'Bereits lizenziert mit Erfahrung? Starte direkt mit der Prüfung deiner Qualifikationen und der Anerkennung für eine bezahlte Pflegestelle.',points:['Anerkennung der Lizenz','Bezahlte Stelle ab Ankunft','Unterstützung beim Familiennachzug']},
+          {tag:'Ausbildung',t:'Noch nicht examiniert? Lerne in Deutschland.',d:'Starte die Ausbildung — verdiene Geld, während du eine anerkannte deutsche Pflegequalifikation erwirbst.',points:['Bezahlte 3-jährige Ausbildung','Deutsch ab A1, voll gefördert','Garantierter Weg zur Lizenz']}
+        ]
+      },
+      guarantee: {
+        eyebrow:'Die Anerkennungs-Garantie', title:'Wir hören erst auf, wenn deine Lizenz anerkannt ist.',
+        sub:'Die Anerkennung deiner ausländischen Qualifikation ist der schwierigste Teil des Umzugs nach Deutschland. Und genau den garantieren wir.',
+        features:['Komplette Anerkennung durch unsere Spezialisten','Geförderte Fachsprachkurse B1/B2','Visum, Flüge & erste Unterkunft organisiert','Persönlicher Mentor ab dem ersten Tag','Keine Gebühren — niemals — für qualifizierte Pflegekräfte'],
+        trust:['Keine Gebühren','Anerkennung garantiert','Familienunterstützung'],
+        cardTier:'Relocation-Paket', cardPeriod:'für dich',
+        cardNote:'Für qualifizierte Pflegekräfte wird dein gesamter Umzug — Prüfung, Sprache, Anerkennung, Visum und Reise — von unseren Partnerkrankenhäusern finanziert.'
+      },
+      stories: {
+        eyebrow:'Erfolgsgeschichten', title:'Von Westafrika auf deutsche Stationen.', videoTag:'Video-Erfahrungsbericht',
+        items:[
+          {q:'Med Global hat meine komplette Anerkennung übernommen. Acht Monate nach meiner Bewerbung aus Lagos arbeitete ich auf der Intensivstation in Düsseldorf.',name:'Chidinma O.',role:'Intensivpflegerin · Düsseldorf',img:'assets/nurse-smile.jpg'},
+          {q:'Ich kam über die Ausbildung, ohne ein Wort Deutsch. Sie haben meinen Sprachkurs finanziert und ich habe hier mein Examen gemacht. Letztes Jahr ist meine Familie nachgekommen.',name:'Emeka A.',role:'Altenpfleger · München',img:'assets/nurse-portrait.jpg'},
+          {q:'Visum und Wohnung waren geregelt, bevor ich gelandet bin. Job und Wohnung waren fertig für mich.',name:'Blessing N.',role:'Kinderkrankenpflegerin · Hamburg',img:'assets/nurses-clipboard.jpg'}
+        ]
+      },
+      faq: {
+        eyebrow:'Fragen', title:'Alles, was du dich fragst.',
+        items:[
+          {q:'Was kostet mich das?',a:'Nichts. Med Global Deutschland wird von Partnerkrankenhäusern bezahlt. Qualifizierte Pflegekräfte zahlen keine Gebühren für Prüfung, Anerkennung, Sprachkurse oder Umzug.'},
+          {q:'Ich spreche kein Deutsch. Kann ich mich trotzdem bewerben?',a:'Ja. Die meisten Bewerber starten mit wenig oder keinem Deutsch. Wir finanzieren und organisieren deine Kurse bis zum Niveau B1/B2, das Arbeitgeber verlangen.'},
+          {q:'Kann meine Familie mitkommen?',a:'Ja. Deutschland erlaubt den Familiennachzug für Fachkräfte. Wir unterstützen Visa für Ehepartner und Kinder als Teil deines Umzugs.'},
+          {q:'Wie lange dauert der gesamte Prozess?',a:'Für examinierte Pflegekräfte in der Regel 8–14 Monate von der Bewerbung bis zur ersten Schicht, abhängig von Sprachfortschritt und Anerkennungsbearbeitung.'},
+          {q:'Was, wenn ich noch keine examinierte Pflegekraft bin?',a:'Du kannst die Ausbildung beginnen — eine bezahlte, dreijährige Ausbildung in Deutschland mit anerkanntem Abschluss.'}
+        ]
+      },
+      cta: { title:'Bereit für deinen Weg nach Deutschland?', sub:'Erstelle dein Profil in wenigen Minuten. Kostenlos, unverbindlich.', button:'Bewerbung starten', trust:['Anerkennung garantiert','0 € für qualifizierte Pflegekräfte','Familienunterstützung inklusive'] },
+      footer: { tagline:'Wir verbinden westafrikanisches Pflegetalent mit dem deutschen Gesundheitswesen.', colA:'Plattform', colB:'Unternehmen', linksA:['So funktioniert es','Wege','Erfolgsgeschichten','FAQ'], linksB:['Über uns','Partnerkrankenhäuser','Kontakt','Datenschutz'], rights:'© 2026 Med Global Deutschland. Alle Rechte vorbehalten.' },
+      register: {
+        back:'Zurück zur Startseite', stepWord:'Schritt', of:'von', continue:'Weiter', secure:'Deine Daten werden verschlüsselt und DSGVO-konform sicher verarbeitet.',
+        s1:{ title:'Beginnen wir mit dir', sub:'Erzähl uns, wer du bist. Das dauert etwa zwei Minuten.', fullName:'Vollständiger Name', fullNamePh:'z. B. Amina Okafor', email:'E-Mail-Adresse', phone:'Telefon (WhatsApp)', country:'Wohnsitzland', city:'Stadt' },
+        s2:{ title:'Dein pflegerischer Hintergrund', q:'Bist du eine examinierte / registrierte Pflegekraft?', yes:'Ja, ich bin examiniert', yesD:'Ich habe eine Pflegelizenz und Berufserfahrung.', no:'Noch nicht', noD:'Ich möchte über die Ausbildung einsteigen.',
+          years:'Berufserfahrung', spec:'Fachbereich', license:'Nummer der Pflegelizenz', licensePh:'z. B. NMCN/RN/123456', cv:'Lebenslauf hochladen (PDF)', licenseDoc:'Pflegelizenz hochladen (PDF oder Bild)',
+          noTag:'Ausbildungsweg', noTitle:'Super — die Ausbildung ist dein Weg.', noD2:'Du machst in Deutschland eine bezahlte Ausbildung und erwirbst eine anerkannte Pflegequalifikation. Zuerst dein Deutsch-Niveau:', level:'Aktuelles Deutsch-Niveau', edu:'Höchster Bildungsabschluss' },
+        s3:{ title:'Prüfen & absenden', sub:'Überprüfe deine Angaben, bevor wir dein Profil erstellen.', consent:'Ich willige ein, dass Med Global Deutschland meine Daten und Dokumente zum Zweck der Vermittlung und des Umzugs verarbeitet.', submit:'Bewerbung absenden' },
+        done:{ title:'Bewerbung eingegangen.', sub:'Willkommen auf deinem Weg nach Deutschland.', ref:'Deine Referenz', emailNote:'Eine Bestätigungs-E-Mail ist unterwegs an', emailSubject:'Willkommen bei Med Global Deutschland — wir haben deine Bewerbung erhalten', emailBody:'Danke für deine Bewerbung. Unser Vermittlungsteam prüft dein Profil und meldet sich innerhalb von fünf Werktagen mit deinen persönlichen nächsten Schritten.', next:'Wie es weitergeht', nextItems:['Unser Team prüft deine Angaben innerhalb von fünf Werktagen.','Wir melden uns per E-Mail und WhatsApp mit deinen nächsten Schritten.','Du erhältst Zugang zu deinem persönlichen Relocation-Dashboard.'], home:'Zurück zur Startseite', another:'Weitere Bewerbung starten' },
+        selects:{ placeholder:'Bitte wählen', country:['Nigeria','Ghana','Kenia','Kamerun','Andere'], years:['Weniger als 1 Jahr','1–2 Jahre','3–5 Jahre','6–10 Jahre','Über 10 Jahre'], spec:['Allgemein / Innere','Intensivpflege (ICU)','Notaufnahme','Pädiatrie','Geriatrie','OP','Geburtshilfe','Onkologie','Andere'], level:['Keins','A1–A2','B1–B2'], edu:['Schulabschluss','Pflegediplom / Zertifikat','Bachelor','Master / Aufbaustudium'] }
+      }
+    }
+  };
+
+  scrollTop() { try { window.scrollTo(0, 0); } catch(e){} }
+  toggleLang = () => this.setState(s => ({ lang: s.lang === 'en' ? 'de' : 'en' }));
+  goRegister = () => { this.setState({ screen:'register', step:1, submitted:false, err:{} }); this.scrollTop(); };
+  goLanding = () => { this.setState({ screen:'landing' }); this.scrollTop(); };
+  setField = (e) => { const {name,value}=e.target; this.setState(s=>({ form:{...s.form,[name]:value}, err:{...s.err,[name]:undefined} })); };
+  setFile = (e) => { const {name}=e.target; const f=e.target.files&&e.target.files[0]; this.setState(s=>({ files:{...s.files,[name]: f?f.name:''}, err:{...s.err,[name]:undefined} })); };
+  setNurseYes = () => this.setState(s=>({ isNurse:true, err:{...s.err,_nurse:undefined} }));
+  setNurseNo = () => this.setState(s=>({ isNurse:false, err:{...s.err,_nurse:undefined} }));
+  toggleConsent = (e) => { const c=e.target.checked; this.setState(s=>({ form:{...s.form,consent:c}, err:{...s.err,consent:undefined} })); };
+
+  validate(step) {
+    const t = this.T[this.state.lang].register;
+    const f = this.state.form, files = this.state.files, e = {};
+    const req = t.selects ? (this.state.lang==='en'?'This field is required':'Pflichtfeld') : '';
+    const reqMsg = this.state.lang==='en' ? 'This field is required' : 'Pflichtfeld';
+    const emailMsg = this.state.lang==='en' ? 'Enter a valid email address' : 'Bitte gültige E-Mail eingeben';
+    const chooseMsg = this.state.lang==='en' ? 'Please choose an option' : 'Bitte eine Option wählen';
+    if (step===1) {
+      if(!f.fullName.trim()) e.fullName=reqMsg;
+      if(!f.email.trim()) e.email=reqMsg; else if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email)) e.email=emailMsg;
+      if(!f.phone.trim()) e.phone=reqMsg;
+      if(!f.country) e.country=reqMsg;
+    } else if (step===2) {
+      if(this.state.isNurse===null){ e._nurse=chooseMsg; }
+      else if(this.state.isNurse===true){
+        if(!f.years) e.years=reqMsg;
+        if(!f.spec) e.spec=reqMsg;
+        if(!f.license.trim()) e.license=reqMsg;
+        if(!files.cv) e.cv=reqMsg;
+        if(!files.licenseDoc) e.licenseDoc=reqMsg;
+      } else {
+        if(!f.level) e.level=reqMsg;
+      }
+    } else if (step===3) {
+      if(!f.consent) e.consent = this.state.lang==='en' ? 'Please accept to continue.' : 'Bitte zustimmen, um fortzufahren.';
+    }
+    return e;
+  }
+
+  next = () => {
+    const e = this.validate(this.state.step);
+    if (Object.keys(e).length) { this.setState({ err:e }); return; }
+    this.setState(s=>({ step: Math.min(3, s.step+1), err:{} })); this.scrollTop();
+  };
+  back = () => {
+    if (this.state.step>1) { this.setState(s=>({ step:s.step-1, err:{} })); this.scrollTop(); }
+    else this.goLanding();
+  };
+  submit = () => {
+    const e = this.validate(3);
+    if (Object.keys(e).length) { this.setState({ err:e }); return; }
+    const ref = 'MGD-' + Math.floor(10000 + Math.random()*89999) + '-26';
+    this.setState({ submitted:true, refId:ref }); this.scrollTop();
+  };
+  restart = () => { this.setState({ step:1, submitted:false, isNurse:null, err:{}, form:{ fullName:'', email:'', phone:'', country:'', city:'', years:'', spec:'', license:'', level:'', edu:'', consent:false }, files:{ cv:'', licenseDoc:'' } }); this.scrollTop(); };
+  toggleFaq(i){ this.setState(s=>({ openFaq: s.openFaq===i ? -1 : i })); }
+  openStory(i){ this.setState({ activeStoryIdx: i }); }
+  closeStory = () => this.setState({ activeStoryIdx: -1 });
+  stop = (e) => { e.stopPropagation(); };
+
+  renderVals() {
+    const s = this.state;
+    const t = this.T[s.lang];
+    const choose = s.lang==='en' ? 'Choose file' : 'Datei wählen';
+
+    const durations = ['2:14','1:48','2:31'];
+    const storyItems = t.stories.items.map((it,i)=>({ q:it.q, name:it.name, role:it.role, img:it.img, dur: durations[i] || '2:00', open: () => this.openStory(i) }));
+    const activeStory = s.activeStoryIdx>=0 ? t.stories.items[s.activeStoryIdx] : {};
+
+    const faqItems = t.faq.items.map((it,i)=>({
+      q: it.q, a: it.a, open: s.openFaq===i, sign: s.openFaq===i ? '–' : '+',
+      toggle: () => this.toggleFaq(i)
+    }));
+
+    // step 3 summary
+    const rg = t.register;
+    const summary = [];
+    summary.push({ label: rg.s1.fullName, value: s.form.fullName || '—' });
+    summary.push({ label: rg.s1.email, value: s.form.email || '—' });
+    summary.push({ label: rg.s1.phone, value: s.form.phone || '—' });
+    summary.push({ label: rg.s1.country, value: (s.form.country || '—') + (s.form.city ? ', '+s.form.city : '') });
+    const nurseLabel = s.lang==='en' ? 'Registered nurse' : 'Examinierte Pflegekraft';
+    if (s.isNurse===true) {
+      summary.push({ label: nurseLabel, value: s.lang==='en'?'Yes':'Ja' });
+      summary.push({ label: rg.s2.years, value: s.form.years || '—' });
+      summary.push({ label: rg.s2.spec, value: s.form.spec || '—' });
+      summary.push({ label: rg.s2.license, value: s.form.license || '—' });
+      summary.push({ label: rg.s2.cv, value: s.files.cv || '—' });
+      summary.push({ label: rg.s2.licenseDoc, value: s.files.licenseDoc || '—' });
+    } else if (s.isNurse===false) {
+      summary.push({ label: nurseLabel, value: (s.lang==='en'?'No · Ausbildung':'Nein · Ausbildung') });
+      summary.push({ label: rg.s2.level, value: s.form.level || '—' });
+      if (s.form.edu) summary.push({ label: rg.s2.edu, value: s.form.edu });
+    }
+
+    const sel = (active) => ({
+      display:'flex', flexDirection:'column', gap:'7px', textAlign:'left',
+      padding:'20px', borderRadius:'var(--radius-cards)', cursor:'pointer',
+      fontFamily:'var(--font-sans)',
+      background: active ? 'rgba(252,95,43,0.06)' : '#fff',
+      border: active ? '2px solid var(--color-sunrise-coral)' : '1px solid var(--color-mist-gray)'
+    });
+    const drop = (filled) => ({
+      display:'flex', alignItems:'center', gap:'10px', cursor:'pointer',
+      padding:'14px', borderRadius:'5px',
+      border: '1px dashed ' + (filled ? 'var(--color-sunrise-coral)' : 'var(--color-ash-gray)'),
+      overflow:'hidden',
+      color: filled ? 'var(--color-sunrise-coral)' : 'var(--color-zinc-gray)',
+      background: filled ? 'rgba(252,95,43,0.05)' : 'var(--color-fog-gray)',
+      fontFamily:'var(--font-sans)'
+    });
+
+    const stepTitles = [ rg.s1.title, rg.s2.title, rg.s3.title ];
+
+    return {
+      onLanding: s.screen==='landing',
+      onRegister: s.screen==='register',
+      t, faqItems, summary, storyItems,
+      storyOpen: s.activeStoryIdx>=0, activeStory,
+      closeStory: this.closeStory, stop: this.stop,
+      lang: s.lang,
+      otherLang: s.lang==='en' ? 'DE' : 'EN',
+      langLabel: s.lang==='en' ? 'English · Deutsch' : 'Deutsch · English',
+      toggleLang: this.toggleLang, goRegister: this.goRegister, goLanding: this.goLanding,
+      setField: this.setField, setFile: this.setFile, setNurseYes: this.setNurseYes, setNurseNo: this.setNurseNo,
+      toggleConsent: this.toggleConsent, next: this.next, back: this.back, submit: this.submit, restart: this.restart,
+      form: s.form, err: s.err,
+      step: s.step, stepNum: s.step, progressPct: Math.round((s.step/3)*100),
+      stepTitle: stepTitles[s.step-1],
+      isStep1: !s.submitted && s.step===1,
+      isStep2: !s.submitted && s.step===2,
+      isStep3: !s.submitted && s.step===3,
+      notStep3: !s.submitted && s.step!==3,
+      showForm: !s.submitted,
+      submitted: s.submitted, refId: s.refId,
+      nurseYes: s.isNurse===true, nurseNo: s.isNurse===false,
+      backLabel: s.step>1 ? (s.lang==='en'?'Back':'Zurück') : rg.back,
+      yesCardStyle: sel(s.isNurse===true), noCardStyle: sel(s.isNurse===false),
+      cvDropStyle: drop(!!s.files.cv), licDropStyle: drop(!!s.files.licenseDoc),
+      cvLabel: s.files.cv || choose, licLabel: s.files.licenseDoc || choose,
+      emailDisplay: s.form.email || '—'
+    };
+  }
+}
+</script>
+</body>
+</html>

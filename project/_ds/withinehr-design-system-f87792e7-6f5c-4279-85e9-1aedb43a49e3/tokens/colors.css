@@ -1,0 +1,169 @@
+/* ============================================================
+   WithinEHR — Color tokens
+   Source of truth: Figma "Color theory" ramps + Figma Variables.
+   Brand anchors: Teal #014952 (primary), Cyan #60ECFF (accent),
+   Green #02AA5B (success), Red #B60505 (danger), Orange #FF7700 (warning).
+   ============================================================ */
+
+:root {
+  /* ---- Teal / Primary -------------------------------------- */
+  /* Brand primary lives at 600. Pale 50–200 are tints for soft
+     surfaces; 300–400 come straight from the Figma turquoise ramp. */
+  --teal-50:  #eaf6f7;
+  --teal-100: #cbe7ea;
+  --teal-200: #9cd0d6;
+  --teal-300: #71deec;
+  --teal-400: #338b96;
+  --teal-500: #1a6a74;
+  --teal-600: #014952; /* ← brand primary */
+  --teal-700: #013a42;
+  --teal-800: #012c31;
+  --teal-900: #001d21;
+
+  /* ---- Cyan / Secondary (accent + soft surfaces) ----------- */
+  --cyan-50:  #effdff;
+  --cyan-100: #dffbff;
+  --cyan-200: #cff9ff;
+  --cyan-300: #bff7ff; /* premium / info surface */
+  --cyan-400: #80f0ff;
+  --cyan-500: #60ecff; /* bright accent */
+  --cyan-600: #4dc7d7;
+  --cyan-700: #3aa1af;
+  --cyan-800: #267c87;
+  --cyan-900: #13565f;
+
+  /* ---- Green / Success ------------------------------------- */
+  --green-50:  #e6fbf1;
+  --green-100: #ccf7e3;
+  --green-200: #9aeec7;
+  --green-300: #67e6aa;
+  --green-400: #35dd8e;
+  --green-500: #02d572;
+  --green-600: #02aa5b; /* ← brand success */
+  --green-700: #018044;
+  --green-800: #01552e;
+  --green-900: #002b17;
+
+  /* ---- Red / Danger ---------------------------------------- */
+  --red-50:  #fce6e6;
+  --red-100: #facdcd;
+  --red-200: #f7b4b4;
+  --red-300: #f49b9b;
+  --red-400: #ef6a6a;
+  --red-500: #e93838;
+  --red-600: #e40606;
+  --red-700: #b60505; /* ← brand danger */
+  --red-800: #890404;
+  --red-900: #5b0202;
+
+  /* ---- Orange / Warning ------------------------------------ */
+  --orange-50:  #fff1e6;
+  --orange-100: #ffe4cc;
+  --orange-200: #ffd6b3;
+  --orange-300: #ffc999;
+  --orange-400: #ffad66;
+  --orange-500: #ff9233;
+  --orange-600: #ff7700; /* ← brand warning */
+  --orange-700: #cc5f00;
+  --orange-800: #994700;
+  --orange-900: #663000;
+
+  /* ---- Neutral / Grey -------------------------------------- */
+  --grey-0:   #ffffff;
+  --grey-50:  #f8f8f8;
+  --grey-100: #f3f3f3;
+  --grey-200: #e7e7e7;
+  --grey-250: #dbdbdb;
+  --grey-300: #cfcfcf;
+  --grey-400: #b8b8b8;
+  --grey-500: #a0a0a0;
+  --grey-600: #888888;
+  --grey-700: #6d6d6d;
+  --grey-800: #525252;
+  --grey-850: #414141;
+  --grey-900: #363636;
+  --grey-925: #292929;
+  --grey-950: #1b1b1b;
+  --grey-1000: #0e0e0e;
+  --black:    #000000;
+
+  /* ---- Extended accents (charts, data viz, marketing) ------ */
+  --blue-50:  #e6eafb;
+  --blue-100: #cdd6f7;
+  --blue-300: #9bacee;
+  --blue-500: #3859dd;
+  --blue-700: #0526aa;
+  --blue-900: #021355;
+
+  --purple-50:  #f2e6fa;
+  --purple-100: #e5cdf5;
+  --purple-300: #cb9ceb;
+  --purple-500: #983ad6;
+  --purple-700: #6507a3;
+  --purple-900: #320452;
+
+  --maroon-300: #c96b7c;
+  --maroon-500: #971f33; /* heritage accent, used in data + marketing */
+  --maroon-700: #6b1424;
+
+  /* ==========================================================
+     SEMANTIC ALIASES — prefer these in product UI
+     ========================================================== */
+
+  /* Functional / brand */
+  --color-primary:        var(--teal-600);
+  --color-primary-hover:  var(--teal-700);
+  --color-primary-active: var(--teal-800);
+  --color-accent:         var(--cyan-500);
+  --color-success:        var(--green-600);
+  --color-danger:         var(--red-700);
+  --color-warning:        var(--orange-600);
+  --color-info:           var(--blue-700);
+
+  /* Surfaces */
+  --surface-page:          var(--grey-50);
+  --surface-card:          var(--grey-0);
+  --surface-raised:        var(--grey-0);
+  --surface-sunken:        var(--grey-100);
+  --surface-hover:         var(--grey-100);
+  --surface-selected:      var(--grey-200);
+  --surface-primary:       var(--teal-600);
+  --surface-primary-hover: var(--teal-700);
+  --surface-soft:          var(--cyan-300);
+  --surface-success:       var(--green-50);
+  --surface-danger:        var(--red-50);
+  --surface-warning:       var(--orange-50);
+  --surface-disabled:      var(--grey-250);
+
+  /* Text */
+  --text-heading:     var(--grey-950);
+  --text-strong:      var(--grey-1000);
+  --text-body:        var(--grey-900);
+  --text-secondary:   var(--grey-800);
+  --text-muted:       var(--grey-700);
+  --text-subtle:      var(--grey-600);
+  --text-placeholder: var(--grey-500);
+  --text-disabled:    var(--grey-400);
+  --text-on-primary:  var(--grey-0);
+  --text-link:        var(--teal-600);
+  --text-success:     var(--green-700);
+  --text-danger:      var(--red-700);
+  --text-warning:     var(--orange-700);
+
+  /* Borders */
+  --border-subtle:  var(--grey-200);
+  --border-default: var(--grey-250);
+  --border-strong:  var(--grey-300);
+  --border-focus:   var(--teal-600);
+  --border-error:   var(--red-700);
+  --border-success: var(--green-600);
+
+  /* Icons */
+  --icon-default:    var(--grey-700);
+  --icon-strong:     var(--grey-925);
+  --icon-muted:      var(--grey-500);
+  --icon-sidebar:    var(--grey-700);
+  --icon-on-primary: var(--grey-0);
+  --icon-success:    var(--green-700);
+  --icon-danger:     var(--red-700);
+}

@@ -1,0 +1,281 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/core/**",
+              "components/marketing/**",
+              "components/navigation/**",
+              "deploy/nurses-to-germany/**",
+              "nurses-to-germany/**",
+              "ui_kits/marketing-site/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Inter Tight|JetBrains Mono))/i]",
+        "message": "Font not provided by the design system. Available: Inter Tight, JetBrains Mono."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|variant|mono|key|ref|className|style|children)$/]",
+        "message": "<Badge> doesn't accept that prop. Declared props: children, variant, mono."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:neutral|dark|coral)$/]",
+        "message": "<Badge> variant must be one of 'neutral' | 'dark' | 'coral'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|variant|size|disabled|withArrow|as|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: children, variant, size, disabled, withArrow, as."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:primary|secondary|dark|ghost)$/]",
+        "message": "<Button> variant must be one of 'primary' | 'secondary' | 'dark' | 'ghost'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md|lg)$/]",
+        "message": "<Button> size must be one of 'sm' | 'md' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='as'] > Literal[value!=/^(?:button|a)$/]",
+        "message": "<Button> as must be one of 'button' | 'a'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Card'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|padded|shadow|key|ref|className|style|children)$/]",
+        "message": "<Card> doesn't accept that prop. Declared props: children, padded, shadow."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FeatureList'] > JSXAttribute > JSXIdentifier[name!=/^(?:items|key|ref|className|style|children)$/]",
+        "message": "<FeatureList> doesn't accept that prop. Declared props: items."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NavLink'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|href|key|ref|className|style|children)$/]",
+        "message": "<NavLink> doesn't accept that prop. Declared props: label, href."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Input'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|helper|key|ref|className|style|children)$/]",
+        "message": "<Input> doesn't accept that prop. Declared props: label, helper."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MembershipCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:brand|tier|price|period|width|key|ref|className|style|children)$/]",
+        "message": "<MembershipCard> doesn't accept that prop. Declared props: brand, tier, price, period, width."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='TrustBadgeRow'] > JSXAttribute > JSXIdentifier[name!=/^(?:items|key|ref|className|style|children)$/]",
+        "message": "<TrustBadgeRow> doesn't accept that prop. Declared props: items."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Badge": {
+        "replaces": []
+      },
+      "Button": {
+        "replaces": []
+      },
+      "Card": {
+        "replaces": []
+      },
+      "FeatureList": {
+        "replaces": []
+      },
+      "NavLink": {
+        "replaces": []
+      },
+      "Input": {
+        "replaces": []
+      },
+      "MembershipCard": {
+        "replaces": []
+      },
+      "TrustBadgeRow": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--accent",
+      "--accent-text",
+      "--border-hairline",
+      "--border-strong",
+      "--card-padding",
+      "--color-ash-gray",
+      "--color-carbon-black",
+      "--color-coral-glow",
+      "--color-fog-gray",
+      "--color-mist-gray",
+      "--color-paper-white",
+      "--color-pure-black",
+      "--color-sunrise-coral",
+      "--color-zinc-gray",
+      "--element-gap",
+      "--fg-muted",
+      "--fg-on-dark",
+      "--fg-primary",
+      "--fg-subtle",
+      "--font-mono",
+      "--font-nb-international-mono-pro",
+      "--font-nb-international-pro",
+      "--font-sans",
+      "--font-weight-bold",
+      "--font-weight-regular",
+      "--gradient-coral-glow",
+      "--leading-body",
+      "--leading-body-lg",
+      "--leading-caption",
+      "--leading-display",
+      "--leading-heading",
+      "--leading-heading-lg",
+      "--leading-heading-sm",
+      "--leading-subheading",
+      "--page-max-width",
+      "--radius-buttons",
+      "--radius-cards",
+      "--radius-icons",
+      "--radius-navbar",
+      "--radius-pills",
+      "--radius-smallcards",
+      "--section-gap",
+      "--shadow-subtle",
+      "--spacing-16",
+      "--spacing-24",
+      "--spacing-28",
+      "--spacing-4",
+      "--spacing-60",
+      "--spacing-8",
+      "--spacing-unit",
+      "--surface-canvas",
+      "--surface-card",
+      "--surface-muted",
+      "--surface-nav",
+      "--text-body",
+      "--text-body-lg",
+      "--text-caption",
+      "--text-display",
+      "--text-heading",
+      "--text-heading-lg",
+      "--text-heading-sm",
+      "--text-subheading",
+      "--tracking-body",
+      "--tracking-body-lg",
+      "--tracking-caption",
+      "--tracking-display",
+      "--tracking-heading",
+      "--tracking-heading-lg",
+      "--tracking-heading-sm",
+      "--tracking-subheading"
+    ],
+    "tokenKinds": {
+      "--color-sunrise-coral": "color",
+      "--color-coral-glow": "color",
+      "--gradient-coral-glow": "color",
+      "--color-carbon-black": "color",
+      "--color-pure-black": "color",
+      "--color-zinc-gray": "color",
+      "--color-ash-gray": "color",
+      "--color-mist-gray": "color",
+      "--color-fog-gray": "color",
+      "--color-paper-white": "color",
+      "--fg-primary": "color",
+      "--fg-muted": "color",
+      "--fg-subtle": "color",
+      "--fg-on-dark": "color",
+      "--accent": "color",
+      "--accent-text": "font",
+      "--border-hairline": "color",
+      "--border-strong": "color",
+      "--surface-canvas": "color",
+      "--surface-card": "color",
+      "--surface-muted": "color",
+      "--surface-nav": "color",
+      "--font-nb-international-pro": "font",
+      "--font-nb-international-mono-pro": "font",
+      "--font-sans": "font",
+      "--font-mono": "font",
+      "--font-weight-regular": "font",
+      "--font-weight-bold": "font",
+      "--text-caption": "font",
+      "--leading-caption": "font",
+      "--tracking-caption": "font",
+      "--text-body": "font",
+      "--leading-body": "font",
+      "--tracking-body": "font",
+      "--text-body-lg": "font",
+      "--leading-body-lg": "font",
+      "--tracking-body-lg": "font",
+      "--text-subheading": "font",
+      "--leading-subheading": "font",
+      "--tracking-subheading": "font",
+      "--text-heading-sm": "font",
+      "--leading-heading-sm": "font",
+      "--tracking-heading-sm": "font",
+      "--text-heading": "font",
+      "--leading-heading": "font",
+      "--tracking-heading": "font",
+      "--text-heading-lg": "font",
+      "--leading-heading-lg": "font",
+      "--tracking-heading-lg": "font",
+      "--text-display": "font",
+      "--leading-display": "font",
+      "--tracking-display": "font",
+      "--spacing-unit": "spacing",
+      "--spacing-4": "spacing",
+      "--spacing-8": "spacing",
+      "--spacing-16": "spacing",
+      "--spacing-24": "spacing",
+      "--spacing-28": "spacing",
+      "--spacing-60": "spacing",
+      "--radius-smallcards": "radius",
+      "--radius-icons": "radius",
+      "--radius-cards": "radius",
+      "--radius-navbar": "radius",
+      "--radius-pills": "radius",
+      "--radius-buttons": "radius",
+      "--shadow-subtle": "shadow",
+      "--page-max-width": "spacing",
+      "--section-gap": "spacing",
+      "--card-padding": "spacing",
+      "--element-gap": "spacing"
+    },
+    "fontFamilies": [
+      "Inter Tight",
+      "JetBrains Mono"
+    ]
+  }
+}

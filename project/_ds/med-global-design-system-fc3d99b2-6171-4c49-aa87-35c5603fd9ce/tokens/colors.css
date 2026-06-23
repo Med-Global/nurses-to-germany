@@ -1,0 +1,37 @@
+/* ── Colors ────────────────────────────────────────────────
+   Deliberately dichromatic: Sunrise Coral + a neutral zinc ramp.
+   Coral is rationed — filled actions and the brand mark only,
+   never body text, icons, or decorative fills. */
+:root {
+  /* Brand accent */
+  --color-sunrise-coral: #fc5f2b;   /* supporting accent, low-frequency emphasis */
+  --color-coral-glow: #ff8b64;      /* gradient endpoint, membership card only */
+  --gradient-coral-glow: linear-gradient(88deg, rgb(252, 95, 43), rgb(255, 139, 100) 90%, rgb(255, 255, 255)); /* @kind color */
+
+  /* Neutrals — the workhorse ramp */
+  --color-carbon-black: #18181b;    /* primary text, floating nav, headings, icon strokes */
+  --color-pure-black: #000000;      /* logo wordmark, deep contrast borders */
+  --color-zinc-gray: #71717a;       /* body text, secondary copy, muted metadata */
+  --color-ash-gray: #a1a1aa;        /* tertiary text, inactive borders, disabled */
+  --color-mist-gray: #e4e4e7;       /* hairline borders, card outlines, dividers */
+  --color-fog-gray: #f4f4f5;        /* subtle surface, muted bg, scrim base */
+  --color-paper-white: #ffffff;     /* page bg, card surfaces, text on dark imagery */
+
+  /* ── Semantic aliases ── */
+  --fg-primary: var(--color-carbon-black);
+  --fg-muted: var(--color-zinc-gray);
+  --fg-subtle: var(--color-ash-gray);
+  --fg-on-dark: var(--color-paper-white);
+
+  --accent: var(--color-sunrise-coral);
+  --accent-text: var(--color-paper-white);
+
+  --border-hairline: var(--color-mist-gray);
+  --border-strong: var(--color-carbon-black);
+
+  /* ── Surfaces (white → mist → carbon, no mid-tone chroma) ── */
+  --surface-canvas: var(--color-paper-white);   /* level 0 — page */
+  --surface-card: var(--color-paper-white);     /* level 1 — cards */
+  --surface-muted: var(--color-fog-gray);       /* level 2 — alt rows / footer */
+  --surface-nav: var(--color-carbon-black);     /* level 3 — floating pill nav */
+}

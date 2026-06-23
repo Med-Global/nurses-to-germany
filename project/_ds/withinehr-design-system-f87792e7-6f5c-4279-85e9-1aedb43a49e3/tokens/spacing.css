@@ -1,0 +1,58 @@
+/* ============================================================
+   WithinEHR — Spacing, radius, elevation & borders
+   Base spacing unit = 4px. Radii ladder from chips (3) to the
+   sidebar shell (15). Elevation is soft + low-contrast — the
+   product floats white panels on a #f8f8f8 page.
+   ============================================================ */
+
+:root {
+  /* Spacing scale (4px base) */
+  --space-0:  0;
+  --space-1:  2px;
+  --space-2:  4px;
+  --space-3:  6px;
+  --space-4:  8px;
+  --space-5:  10px;
+  --space-6:  12px;
+  --space-8:  16px;
+  --space-9:  18px;
+  --space-10: 20px;
+  --space-12: 24px;
+  --space-14: 28px;
+  --space-16: 32px;
+  --space-20: 40px;
+  --space-24: 48px;
+  --space-32: 64px;
+
+  /* Radius ladder */
+  --radius-xs:   3px;  /* avatars, tiny chips */
+  --radius-sm:   5px;  /* buttons, inputs, menu rows */
+  --radius-md:   10px; /* top bar, dialogs, banners */
+  --radius-lg:   12px; /* content cards */
+  --radius-xl:   15px; /* app shells / side nav */
+  --radius-pill: 999px;
+
+  /* Borders */
+  --border-width: 1px;
+  --border-width-thick: 2px;
+  --border-hairline: 1px solid var(--border-subtle);
+  --border-card: 1px solid var(--border-default);
+
+  /* Elevation — soft, grey-tinted, low spread */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-sm: 0 2px 5.6px rgba(72, 72, 72, 0.15);
+  --shadow-md: 0 4px 16px rgba(183, 183, 183, 0.28);
+  --shadow-lg: 0 4px 30px rgba(183, 183, 183, 0.2);   /* side nav / top bar */
+  --shadow-pop: 0 8px 40px rgba(54, 54, 54, 0.18);    /* dialogs, menus */
+
+  /* Focus ring (teal) */
+  --ring-focus: 0 0 0 3px rgba(1, 73, 82, 0.18);
+  --ring-danger: 0 0 0 3px rgba(182, 5, 5, 0.16);
+
+  /* Motion */
+  --ease-standard: cubic-bezier(0.2, 0, 0.2, 1); /* @kind other */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  --duration-fast: 120ms; /* @kind other */
+  --duration-base: 180ms; /* @kind other */
+  --duration-slow: 260ms; /* @kind other */
+}

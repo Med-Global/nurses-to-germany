@@ -1,0 +1,30 @@
+/* ── Spacing, radius, shadow, layout ──────────────────────
+   Base unit 4px, compact density. The system is nearly flat —
+   a single 2px hairline shadow at most, most cards have none. */
+:root {
+  /* Spacing scale */
+  --spacing-unit: 4px;
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-28: 28px;
+  --spacing-60: 60px;
+
+  /* Border radius */
+  --radius-smallcards: 5px;   /* small cards / thumbnails */
+  --radius-icons: 7.5px;      /* soft squircle icon tiles */
+  --radius-cards: 15px;       /* default card */
+  --radius-navbar: 15px;      /* floating pill nav */
+  --radius-pills: 9999px;     /* pills */
+  --radius-buttons: 9999px;   /* all buttons are pills */
+
+  /* Shadow — the only one in the system */
+  --shadow-subtle: rgba(0, 0, 0, 0.05) 0px 2px 2px 0px;
+
+  /* Layout */
+  --page-max-width: 1200px;
+  --section-gap: 75px;
+  --card-padding: 19px;
+  --element-gap: 11px;
+}

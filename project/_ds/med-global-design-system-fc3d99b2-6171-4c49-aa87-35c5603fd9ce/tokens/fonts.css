@@ -1,0 +1,8 @@
+/* ── Webfonts ──────────────────────────────────────────────
+   The signature face is NB International Pro (proprietary, not
+   available on a public CDN). We substitute Inter Tight, the
+   closest geometric grotesque with tight tracking behaviour, and
+   JetBrains Mono for the mono role. Swap these @font-face / @import
+   targets for the licensed NB International Pro woff2 files when
+   available. */
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap');
